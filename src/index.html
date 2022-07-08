@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./logo.png" type="image/x-icon">
+    <title>Under the Weather | Final Project</title>
+</head>
+<body>
+    <header>
+        <img src="./logo.png" alt="the 'under the weather' site logo">
+    </header>
+    <section>
+        <img src="#" alt="" id="currentImg">
+        <p id="current"></p>
+        <p id="city"></p>
+        <p id="temp"></p>
+        <hr>
+        <p>Wind: <span id="wind"></span></p>
+        <p>Humid: <span id="humid"></span></p>
+        <hr>
+    </section>
+    <section>
+        <table>
+            <thead>
+                <tr>
+                    <th id="dayforecast1"></th>
+                    <th id="dayforecast2"></th>
+                    <th id="dayforecast3"></th>
+                    <th id="dayforecast4"></th>
+                    <th id="dayforecast5"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="#" alt="" id="forecasticon1">
+                        <p id="forecasttemp1"></p>
+                    </td>
+                    <td><img src="#" alt="" id="forecasticon2">
+                        <p id="forecasttemp2"></p>
+                    </td>
+                    <td><img src="#" alt="" id="forecasticon3">
+                        <p id="forecasttemp3"></p>
+                    </td>
+                    <td><img src="#" alt="" id="forecasticon4">
+                        <p id="forecasttemp4"></p>
+                    </td>
+                    <td><img src="#" alt="" id="forecasticon5">
+                        <p id="forecasttemp5"></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section>
+        <input id="searchfield"></input>
+        <p id="cityName"></p>
+        <p id="cityId" style="color: teal; font-weight: bold"></p>
+    </section>
+    <script>
+        // CURRENT WEATHER 
+        let weatherURL = "https://api.openweathermap.org/data/2.5/weather?id=536203&units=imperial&APPID=93022b80d2fa47743474256c2ea49a47";
+    
+        let weatherRequest = new XMLHttpRequest();
+        weatherRequest.open('GET', weatherURL, true);
+        weatherRequest.send();
+
+        weatherRequest.onload =  function () {
+        let weatherData = JSON.parse(weatherRequest.responseText);
+        console.log(weatherData);
+        document.getElementById('currentImg').setAttribute('src', "https://openweathermap.org/img/w/" + weatherData.weather[0].icon + ".png");
+        document.getElementById('current').innerHTML = weatherData.weather[0].description;
+        document.getElementById('city').innerHTML = weatherData.name;
+        document.getElementById('temp').innerHTML = weatherData.main.temp + ' &#8457;';
+        document.getElementById('wind').innerHTML = weatherData.wind.speed + ' mph';
+        document.getElementById('humid').innerHTML = weatherData.main.humidity + ' &percnt;';
+        }
+
+        //  FORECAST
+        
+        const forecastURL = "https://api.openweathermap.org/data/2.5/forecast?id=536203&units=imperial&APPID=93022b80d2fa47743474256c2ea49a47"
+        const forecast = new XMLHttpRequest();
+        forecast.open('GET', forecastURL, true);
+        forecast.send();
+
+        forecast.onload = function () {
+            const forecastData = JSON.parse(forecast.responseText);
+            console.log(forecastData);
+
+            let weekday = new Array(7);
+            weekday[0] = "Mon";
+            weekday[1] = "Tue";
+            weekday[2] = "Wed";
+            weekday[3] = "Thu";
+            weekday[4] = "Fri";
+            weekday[5] = "Sat";
+            weekday[6] = "Sun";
+            let count = 1;
+            for (let i = 0; i < forecastData.list.length; i++) {
+                if (forecastData.list[i].dt_txt.includes("18:00:00")) {
+                    document.getElementById('forecasttemp'+count).innerHTML=forecastData.list[i].main.temp + ' &#8457;';
+                    document.getElementById('forecasticon' + count).setAttribute('src', "https://openweathermap.org/img/w/" + forecastData.list[i].weather[0].icon + ".png");
+                    document.getElementById('forecasticon' + count).setAttribute('alt', forecastData.list[i].weather[0].description);
+                    document.getElementById('dayforecast' + count).innerHTML = weekday[(new Date().getDay() + count - 1) % 7];
+                    count++;
+                }   
+                if (count == 6) {
+                    break;
+                }
+            }
+        }
+
+        // SEARCH 
+        const Data = [
+        {
+            "id": 524894,
+            "name": "Moscow",
+            "state": "",
+            "country": "RU",
+            "coord": {
+                "lon": 37.606667,
+                "lat": 55.761665
+            }
+        },
+        {   
+            "id": 498817,
+            "name": "Saint Petersburg",
+            "state": "",
+            "country": "RU",
+            "coord": {
+                "lon": 30.264168,
+                "lat": 59.894444
+            }
+        },
+        {
+            "id": 498677,
+            "name": "Saratov",
+            "state": "",
+            "country": "RU",
+            "coord": {
+                "lon": 46.033333,
+                "lat": 51.566666
+            }
+        },
+        {
+            "id": 2013348,
+            "name": "Vladivostok",
+            "state": "",
+            "country": "RU",
+            "coord": {
+                "lon": 131.873535,
+                "lat": 43.105621
+            }
+        },
+        {
+            "id": 5128581,
+            "name": "New York City",
+            "state": "NY",
+            "country": "US",
+            "coord": {
+                "lon": -74.005966,
+                "lat": 40.714272
+            }
+        }
+    ]
+        document.getElementById('searchfield').addEventListener('keyup', function(){
+        let pattern = new RegExp(this.value, 'i');
+        let cityName = Data.filter(item => item.name.match(pattern) && this.value != '').map(item => `<p>${item.name}</p>`).join(', ');
+        let cityId = Data.filter(item => item.name.match(pattern) && this.value != '').map(item => `<p>${item.id}</p>`).join(', ');
+        document.getElementById('cityName').innerHTML = cityName;
+        document.getElementById('cityId').innerHTML = cityId;
+        });
+
+    </script>
+</body>
+</html>
