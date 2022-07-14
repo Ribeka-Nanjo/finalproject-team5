@@ -5,13 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./weather-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/desktop.css">
+    <link rel="stylesheet" href="./css/mobile.css">
     <title>Open Weather | Final Project</title>
 </head>
 <body>
+    <section class="searchSection">
+        <input id="searchfield"></input>
+        <button type="button" onclick="sendRequest()">Search</button>
+    </section>
     <header>
-        <img src="./weather-logo.png" alt="the weather site logo" style="width: 150px">
+        <img class="logo" src="./weather-logo.png" alt="the weather site logo">
     </header>
-    <section>
+    <section class="currentWeather">
         <img src="#" alt="" id="currentImg">
         <p id="current"></p>
         <p id="city"></p>
@@ -21,7 +27,7 @@
         <p>Humid: <span id="humid"></span></p>
         <hr>
     </section>
-    <section>
+    <section class="forecastWeather">
         <table>
             <thead>
                 <tr>
@@ -53,60 +59,6 @@
             </tbody>
         </table>
     </section>
-    <section>
-        <input id="searchfield"></input>
-    </section>
-    <script>
-        // SEARCH FIELD
-        document.getElementById('searchfield').addEventListener('keyup', function(){
-        cityName = document.getElementById("searchfield").value;
-        // CURRENT WEATHER 
-        let weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&APPID=93022b80d2fa47743474256c2ea49a47`;
-        let weatherRequest = new XMLHttpRequest();
-        weatherRequest.open('GET', weatherURL, true);
-        weatherRequest.send();
-        weatherRequest.onload =  function () {
-        let weatherData = JSON.parse(weatherRequest.responseText);
-        // console.log(weatherData);
-        document.getElementById('currentImg').setAttribute('src', "https://openweathermap.org/img/w/" + weatherData.weather[0].icon + ".png");
-        document.getElementById('current').innerHTML = weatherData.weather[0].description;
-        document.getElementById('city').innerHTML = weatherData.name;
-        document.getElementById('temp').innerHTML = weatherData.main.temp + ' &#8457;';
-        document.getElementById('wind').innerHTML = weatherData.wind.speed + ' mph';
-        document.getElementById('humid').innerHTML = weatherData.main.humidity + ' &percnt;';
-        }
-        const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&APPID=93022b80d2fa47743474256c2ea49a47`
-        const forecast = new XMLHttpRequest();
-        forecast.open('GET', forecastURL, true);
-        forecast.send();
-
-        forecast.onload = function () {
-            const forecastData = JSON.parse(forecast.responseText);
-            // console.log(forecastData);
-            let weekday = new Array(7);
-            weekday[0] = "Mon";
-            weekday[1] = "Tue";
-            weekday[2] = "Wed";
-            weekday[3] = "Thu";
-            weekday[4] = "Fri";
-            weekday[5] = "Sat";
-            weekday[6] = "Sun";
-            let count = 1;
-            for (let i = 0; i < forecastData.list.length; i++) {
-                if (forecastData.list[i].dt_txt.includes("18:00:00")) {
-                    document.getElementById('forecasttemp'+count).innerHTML=forecastData.list[i].main.temp + ' &#8457;';
-                    document.getElementById('forecasticon' + count).setAttribute('src', "https://openweathermap.org/img/w/" + forecastData.list[i].weather[0].icon + ".png");
-                    document.getElementById('forecasticon' + count).setAttribute('alt', forecastData.list[i].weather[0].description);
-                    document.getElementById('dayforecast' + count).innerHTML = weekday[(new Date().getDay() + count - 1) % 7];
-                    count++;
-                }   
-                if (count == 6) {
-                    break;
-                }
-            }
-        }
-    });
-
-    </script>
+    <script src="./js/main.js"></script>
 </body>
 </html>
