@@ -1,1 +1,1 @@
-.logo{width:150px}.currentWeather{}.forecastWeather{}.searchSection{}
+body{font-size:large}.logo{width:150px}.imgClass{width:80px}hr{height:5px;background-color:#87cefa}.header,.currentWeather,.cardsContainer{margin:0 15%;text-align:center}.header-content{margin:0;padding:.5em;background-color:#4c5e86;text-align:end}.cardsContainer{display:grid;grid-template-columns:repeat(5,1fr);background-color:#4c5e86}.cards{margin:0 auto;font-size:large;color:#fff}

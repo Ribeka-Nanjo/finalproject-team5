@@ -1,19 +1,35 @@
-/* 
-you may want to use just one css file and use @media querries 
-*/
-
+/* NOTES FOR RIBEKA */
+/* THE CSS BELOW WAS JUST FOR FUN. MAKE IT THE WAY YOU WANT ;) */
+body{
+    font-size: large;
+}
 .logo{
     width: 150px;
 }
-
-.currentWeather{
-
+.imgClass{
+    width: 80px;
 }
-
-.forecastWeather{
-
+hr{
+    height: 5px;
+    background-color: lightskyblue;
 }
-
-.searchSection{
-
+.header, .currentWeather, .cardsContainer{
+    margin: 0 15%;
+    text-align: center;
+}
+.header-content{
+    margin: 0;
+    padding: .5em;
+    background-color:#4C5E86;
+    text-align: end;
+}
+.cardsContainer{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background-color: #4C5E86;
+}
+.cards{
+    margin: 0 auto;
+    font-size: large;
+    color: white;
 }
