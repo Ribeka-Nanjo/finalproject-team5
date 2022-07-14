@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./logo.png" type="image/x-icon">
-    <title>Under the Weather | Final Project</title>
+    <link rel="shortcut icon" href="./weather-logo.png" type="image/x-icon">
+    <title>Open Weather | Final Project</title>
 </head>
 <body>
     <header>
-        <img src="./logo.png" alt="the 'under the weather' site logo">
+        <img src="./weather-logo.png" alt="the weather site logo" style="width: 150px">
     </header>
     <section>
         <img src="#" alt="" id="currentImg">
@@ -55,107 +55,19 @@
     </section>
     <section>
         <input id="searchfield"></input>
-        <p id="cityName"></p>
-        <p id="cityId" style="color: teal; font-weight: bold"></p>
     </section>
     <script>
-        // DATA
-        const Data = [
-        {
-        "id": 524894,
-        "name": "Moscow",
-        "state": "",
-        "country": "RU",
-        "coord": {
-        "lon": 37.606667,
-        "lat": 55.761665
-        }
-        },
-        {
-        "id": 498817,
-        "name": "Saint Petersburg",
-        "state": "",
-        "country": "RU",
-        "coord": {
-        "lon": 30.264168,
-        "lat": 59.894444
-        }
-        },
-        {
-        "id": 498677,
-        "name": "Saratov",
-        "state": "",
-        "country": "RU",
-        "coord": {
-        "lon": 46.033333,
-        "lat": 51.566666
-        }
-        },
-        {
-        "id": 2013348,
-        "name": "Vladivostok",
-        "state": "",
-        "country": "RU",
-        "coord": {
-        "lon": 131.873535,
-        "lat": 43.105621
-        }
-        },
-        {
-        "id": 5128581,
-        "name": "New York City",
-        "state": "NY",
-        "country": "US",
-        "coord": {
-        "lon": -74.005966,
-        "lat": 40.714272
-        }
-        },
-        {
-        "id": 5780026,
-        "name": "Provo",
-        "state": "UT",
-        "country": "US",
-        "coord": {
-        "lon": -111.658531,
-        "lat": 40.233841
-        }
-        },
-        {
-        "id": 5586437,
-        "name": "Boise",
-        "state": "ID",
-        "country": "US",
-        "coord": {
-        "lon": -116.203453,
-        "lat": 43.613499
-        }
-        }
-    ]
-        // FIXME: id is used to dynamicly switch between cities. But error pops up while typing  
         // SEARCH FIELD
         document.getElementById('searchfield').addEventListener('keyup', function(){
-        let pattern = new RegExp(this.value, 'i');
-        // let cityName = Data.filter(item => item.name.match(pattern) && this.value != '').map(item => `<p>${item.name}</p>`).join(', ');
-        // let cityId = Data.filter(item => item.name.match(pattern) && this.value != '').map(item => `<p>${item.id}</p>`).join(', ');
-        cityId = String(Data.filter(item => item.name.match(pattern) && this.value != '').map(item => `${item.id}`));
-        // document.getElementById('cityName').innerHTML = cityName;
-        // document.getElementById('cityId').innerHTML = cityId;
-        
-        // PERF: current weather is working fine 
+        cityName = document.getElementById("searchfield").value;
         // CURRENT WEATHER 
-        let weatherURL = `https://api.openweathermap.org/data/2.5/weather?id=${cityId}&units=imperial&APPID=93022b80d2fa47743474256c2ea49a47`;
-
+        let weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&APPID=93022b80d2fa47743474256c2ea49a47`;
         let weatherRequest = new XMLHttpRequest();
-        // BUG: is somewhere here. Need to add some sort of sleep time to prevent from sending empty id request 
-        // BUG: sometimes two IDs are placed into the URL, sometimes ID is empty because it doesn't wait for user to type it..
-        // NOTE: OPEN PAGE in live server ! It works just perfect, although errors are still shown in console
         weatherRequest.open('GET', weatherURL, true);
         weatherRequest.send();
-
         weatherRequest.onload =  function () {
         let weatherData = JSON.parse(weatherRequest.responseText);
-        console.log(weatherData);
+        // console.log(weatherData);
         document.getElementById('currentImg').setAttribute('src', "https://openweathermap.org/img/w/" + weatherData.weather[0].icon + ".png");
         document.getElementById('current').innerHTML = weatherData.weather[0].description;
         document.getElementById('city').innerHTML = weatherData.name;
@@ -163,19 +75,14 @@
         document.getElementById('wind').innerHTML = weatherData.wind.speed + ' mph';
         document.getElementById('humid').innerHTML = weatherData.main.humidity + ' &percnt;';
         }
-
-        // PERF: forecast is working fine 
-        //  FORECAST
-        
-        const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?id=${cityId}&units=imperial&APPID=93022b80d2fa47743474256c2ea49a47`
+        const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&APPID=93022b80d2fa47743474256c2ea49a47`
         const forecast = new XMLHttpRequest();
         forecast.open('GET', forecastURL, true);
         forecast.send();
 
         forecast.onload = function () {
             const forecastData = JSON.parse(forecast.responseText);
-            console.log(forecastData);
-
+            // console.log(forecastData);
             let weekday = new Array(7);
             weekday[0] = "Mon";
             weekday[1] = "Tue";
