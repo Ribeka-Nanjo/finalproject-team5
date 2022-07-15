@@ -10,7 +10,7 @@
     "format": "prettier --ignore-path ./.gitignore --write \"./**/*.{html,json,js,ts,css}\"",
     "babel": "babel src -d dist"
   },
-  "author": "Shane Thompson",
+  "author": "Team Five",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.12.8",
