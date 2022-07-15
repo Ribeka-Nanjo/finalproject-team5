@@ -51,3 +51,6 @@ hr{
     padding: 0 2em;
     border-radius: 10px;
 }
+.cards:hover{
+    background-color: #7a8db7;
+}
