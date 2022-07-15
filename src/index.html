@@ -4,61 +4,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./weather-logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/weather-logo.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/desktop.css">
     <link rel="stylesheet" href="./css/mobile.css">
     <title>Open Weather | Final Project</title>
 </head>
-<body>
-    <section class="searchSection">
-        <input id="searchfield"></input>
-        <button type="button" onclick="sendRequest()">Search</button>
-    </section>
-    <header>
-        <img class="logo" src="./weather-logo.png" alt="the weather site logo">
-    </header>
-    <section class="currentWeather">
-        <img src="#" alt="" id="currentImg">
-        <p id="current"></p>
-        <p id="city"></p>
-        <p id="temp"></p>
-        <hr>
-        <p>Wind: <span id="wind"></span></p>
-        <p>Humid: <span id="humid"></span></p>
-        <hr>
-    </section>
-    <section class="forecastWeather">
-        <table>
-            <thead>
-                <tr>
-                    <th id="dayforecast1"></th>
-                    <th id="dayforecast2"></th>
-                    <th id="dayforecast3"></th>
-                    <th id="dayforecast4"></th>
-                    <th id="dayforecast5"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><img src="#" alt="" id="forecasticon1">
-                        <p id="forecasttemp1"></p>
-                    </td>
-                    <td><img src="#" alt="" id="forecasticon2">
-                        <p id="forecasttemp2"></p>
-                    </td>
-                    <td><img src="#" alt="" id="forecasticon3">
-                        <p id="forecasttemp3"></p>
-                    </td>
-                    <td><img src="#" alt="" id="forecasticon4">
-                        <p id="forecasttemp4"></p>
-                    </td>
-                    <td><img src="#" alt="" id="forecasticon5">
-                        <p id="forecasttemp5"></p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+<body onload="weatherMapper()">
+
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <input type="text" id="cityInput">
+                <button type="button" onclick="WeatherUserInfo()">Search</button>        
+            </div>
+            <img class="logo" src="./images/weather-logo.png" alt="">
+        </div>
+        <section class="currentWeather">
+            <h2 id="cityName" class="cityName">London</h2>
+            <img src="#" alt="" id="currentImg">
+            <p id="current"></p>
+            <p id="temp"></p>
+            <hr>
+            <p>Wind: <span id="wind"></span></p>
+            <p>Humid: <span id="humid"></span></p>
+            <hr>
+        </section>
+
+            <div class="cardsContainer">    
+
+                <div class = "cards">
+                    <p class="weather" id="day1"></p>
+                        <img src="./images/loading.png" class="imgClass" id="img1">
+                        <p id="day1Temp">Loading...</p>
+                </div>
+
+                <div class = "cards">
+                    <p class="weather" id="day2"></p>
+                        <img src="./images/loading.png" class="imgClass" id="img2">
+                        <p class="minValues" id="day2Temp">Loading...</p>
+                </div>
+
+                <div class = "cards">
+                    <p class="weather" id="day3"></p>
+                        <img src="./images/loading.png" class="imgClass" id="img3">
+                        <p class="minValues" id="day3Temp">Loading...</p>
+                </div>
+
+                <div class = "cards">
+                    <p class="weather" id="day4"></p>
+                        <img src="./images/loading.png" class="imgClass" id="img4">
+                        <p class="minValues" id="day4Temp">Loading...</p>
+                </div>
+
+                <div class = "cards">
+                    <p class="weather" id="day5"></p>
+                        <img src="./images/loading.png" class="imgClass" id="img5">
+                        <p class="minValues" id="day5Temp">Loading...</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     <script src="./js/main.js"></script>
 </body>
 </html>

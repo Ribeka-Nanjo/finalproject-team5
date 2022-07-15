@@ -1,19 +1,56 @@
-/* 
-you may want to use just one css file and use @media querries 
-*/
-
+/* NOTES FOR RIBEKA */
+/* THE CSS BELOW WAS JUST FOR FUN. MAKE IT THE WAY YOU WANT ;) */
+body{
+    font-size: large;
+}
+#current{
+    /* You will want to keep this. This will capitalize the weather description */
+    text-transform: capitalize;
+}
+h2{
+    color: #4C5E86;
+}
 .logo{
     width: 150px;
 }
-
-.currentWeather{
-
+.imgClass{
+    width: 80px;
 }
-
-.forecastWeather{
-
+hr{
+    height: 5px;
+    background-color: #4C5E86;
+    width: 20%;
+    margin: .5em auto;
+    border-radius: 5px;
 }
-
-.searchSection{
-
+.header, .currentWeather, .cardsContainer{
+    margin: 0 15%;
+    text-align: center;
+}
+.header-content{
+    margin: 0;
+    padding: .5em;
+    background-color:#4C5E86;
+    box-shadow: #4C5E86 3px 3px 5px;
+    border-radius: 5px;
+    text-align: end;
+}
+.cardsContainer{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background-color: #4C5E86;
+    box-shadow: #4C5E86 3px 3px 10px;
+    border-radius: 10px;
+}
+.cards{
+    margin: 1em auto;
+    font-size: large;
+    font-weight: 700;
+    color: white;
+    box-shadow: 2px 2px 5px white;
+    padding: 0 2em;
+    border-radius: 10px;
+}
+.cards:hover{
+    background-color: #7a8db7;
 }
