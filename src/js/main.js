@@ -21,7 +21,7 @@ function WeatherUserInfo() {
     .then(response => response.json())
     .then(data => {
     for(i = 0; i<5; i++){
-        document.getElementById("day" + (i+1) + "Temp").innerHTML = Number(data.list[i].main.temp).toFixed(1)+ "°C";
+        document.getElementById("day" + (i+1) + "Temp").innerHTML = Number(data.list[i].main.temp).toFixed(1)+ " °C";
     }
      for(i = 0; i<5; i++){
         document.getElementById("img" + (i+1)).src = "http://openweathermap.org/img/wn/"+
