@@ -54,3 +54,24 @@ hr{
 .cards:hover{
     background-color: #7a8db7;
 }
+
+.noBorder {
+    border: none;
+}
+.norBorder {
+    display: inline-block;
+}
+
+a {
+    list-style: none;
+}
+
+.weatherContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+.cards{
+    border: 1px solid #ff9003;
+}

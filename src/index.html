@@ -14,21 +14,54 @@
     <div class="container">
         <div class="header">
             <div class="header-content">
+                <button type="submit" onclick="getData()">Get Data</a></button>
+                <button type="submit" onclick="saveData()">Save Data</button>
+                <button type="submit" onclick="deleteData()">Remove Data</button>
+                <!-- <label for="text">Remove/Get Item</label> -->
+                <!-- <input type="text" id="getName"> -->
+                <!-- <label for="text">last name</label>
+                <input type="text" id="lname"> -->
                 <input type="text" id="cityInput">
                 <button type="button" onclick="WeatherUserInfo()">Search</button>        
             </div>
             <img class="logo" src="./images/weather-logo.png" alt="">
         </div>
-        <section class="currentWeather">
-            <h2 id="cityName" class="cityName">London</h2>
-            <img src="#" alt="" id="currentImg">
-            <p id="current"></p>
-            <p id="temp"></p>
-            <hr>
-            <p>Wind: <span id="wind"></span></p>
-            <p>Humid: <span id="humid"></span></p>
-            <hr>
-        </section>
+            <div class="weatherContainer">
+                <div class="removeItem cards">
+                    <h2>Display data</h2>
+                    <h4>City: <span id="city"></span></h4>
+                    <h4>Tempreture: <span id="tempr"></span></h4>
+                    <h4>Wind: <span id="windy"></span></h4>
+                    <h4>Humidity: <span id="humidity"></span></h4>
+                </div>
+                <div class="display cards">
+                    <section class="currentWeather">
+                        <!-- <input type="text" id="cityName" class="noBorder"> -->
+                        <h2 id="cityName" class="cityName">London</h2>
+                        <img src="#" alt="" id="currentImg">
+                        <input type="text" id="current" class="noBorder">
+                        <!-- <p id="current"></p> -->
+                        <p id="temp"></p>
+                        <hr>
+                        <div class="norBorder">
+                            <label for="">Wind</label>
+                            <input type="text" id="wind" class="noBorder" readonly><br>
+                            <label for="">Humidity</label>
+                            <input type="text" id="humid" class="noBorder" readonly>
+            
+                        </div>
+                        <!-- <p>Wind: <span id="wind"></span></p> -->
+                        <!-- <p>Humid: <span id="humid"></span></p> -->
+                        <hr>
+                    </section>
+                </div>
+                <div class="getDataDisplay cards">
+                    <h3>Items Delete</h3>
+                    <p id="del"></p>
+
+                </div>
+
+            </div>
 
             <div class="cardsContainer">    
 
