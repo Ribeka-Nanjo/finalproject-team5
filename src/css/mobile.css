@@ -1,56 +1,88 @@
 /* NOTES FOR RIBEKA */
 /* THE CSS BELOW WAS JUST FOR FUN. MAKE IT THE WAY YOU WANT ;) */
-body{
+body {
     font-size: large;
 }
-#current{
-    /* You will want to keep this. This will capitalize the weather description */
+
+#current {
+    /* You will want to KEEP THIS. This will capitalize the weather description */
     text-transform: capitalize;
 }
-h2{
+
+h2 {
     color: #4C5E86;
 }
-.logo{
+
+.logo {
     width: 150px;
 }
-.imgClass{
+
+.imgClass {
     width: 80px;
 }
-hr{
+
+hr {
     height: 5px;
     background-color: #4C5E86;
     width: 20%;
     margin: .5em auto;
     border-radius: 5px;
 }
-.header, .currentWeather, .cardsContainer{
+
+.header,
+.currentWeather,
+.cardsContainer {
     margin: 0 15%;
     text-align: center;
 }
-.header-content{
+
+.header-content {
     margin: 0;
     padding: .5em;
-    background-color:#4C5E86;
+    background-color: #4C5E86;
     box-shadow: #4C5E86 3px 3px 5px;
     border-radius: 5px;
     text-align: end;
 }
-.cardsContainer{
+
+.cardsContainer {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     background-color: #4C5E86;
     box-shadow: #4C5E86 3px 3px 10px;
     border-radius: 10px;
 }
-.cards{
+
+.cards {
     margin: 1em auto;
     font-size: large;
     font-weight: 700;
-    color: white;
+    color: crimson;
     box-shadow: 2px 2px 5px white;
     padding: 0 2em;
     border-radius: 10px;
 }
-.cards:hover{
-    background-color: #7a8db7;
+
+.noBorder {
+    border: none;
+}
+
+.norBorder {
+    display: inline-block;
+}
+
+a {
+    list-style: none;
+}
+
+.weatherContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.removeItem,
+.getDataDisplay {
+    color: crimson;
 }
