@@ -19,7 +19,7 @@ function WeatherUserInfo() {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=` + newName.value + `&units=metric&APPID=93022b80d2fa47743474256c2ea49a47`)
         .then(response => response.json())
         .then(current => {
-            document.getElementById('cityName').innerHTML = newName.value;
+            document.getElementById('cityName').innerHTML = newName.value.toLowerCase();
             document.getElementById('currentImg').setAttribute('src', "https://openweathermap.org/img/w/" + current.weather[0].icon + ".png");
             document.getElementById('current').value = current.weather[0].description;
             document.getElementById('temp').value = current.main.temp + " °C";
@@ -66,7 +66,7 @@ for (i = 0; i < 5; i++) {
 function saveData() {
 
     let data = {
-        "city": cityNameKey.value,
+        "city": cityNameKey.value.toLowerCase(),
         "tempreture": temp.value,
         "wind": wind.value,
         "humid": humid.value
@@ -81,11 +81,11 @@ function getData() {
     try{
     const dataFromStorage = local.getItem(cityNameKey.value.toLowerCase());
     const dataInfo = JSON.parse(dataFromStorage);
-    document.getElementById("city").innerHTML = dataInfo.city;
+    document.getElementById("city").innerHTML = dataInfo.city.toLowerCase();
     document.getElementById("tempr").innerHTML = dataInfo.tempreture;
     document.getElementById("windy").innerHTML = dataInfo.wind;
     document.getElementById("humidity").innerHTML = dataInfo.humid;
-    document.getElementById('cityName').innerHTML = document.getElementById("cityInput").value;
+    document.getElementById('cityName').innerHTML = document.getElementById("cityInput").value.toLowerCase();
 }
 catch(err) {cityName.innerHTML = "<span style='color: crimson'>Error:</br> Local Storage has no data for this city</span>"}
 }
