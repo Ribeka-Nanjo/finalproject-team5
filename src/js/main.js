@@ -1,4 +1,5 @@
 // VARIABLES
+
 var cityNameKey = document.getElementById("cityInput");
 const current = document.getElementById('current');
 const temp = document.getElementById('temp');
@@ -25,6 +26,7 @@ function WeatherUserInfo() {
             document.getElementById('wind').value = current.wind.speed + ' m/s';
             document.getElementById('humid').value = current.main.humidity + ' %';
         })
+        .catch(err => cityName.innerHTML = "<span style='color: crimson'>Error:</br> Check City Name</span>")
 
     // FORECAST
     fetch('https://api.openweathermap.org/data/2.5/forecast?q=' + newName.value + '&units=metric&APPID=93022b80d2fa47743474256c2ea49a47')
@@ -40,7 +42,7 @@ function WeatherUserInfo() {
             }
 
         })
-        .catch(err => cityName.innerHTML = "<span style='color: crimson'>Error: Check City Name</span>")
+        .catch(err => cityName.innerHTML = "<span style='color: crimson'>Error:</br> Check City Name</span>")
 }
 
 function weatherMapper() {
@@ -69,31 +71,39 @@ function saveData() {
         "wind": wind.value,
         "humid": humid.value
     }
-
-    local.setItem(cityNameKey.value, JSON.stringify(data));
+    local.setItem(cityNameKey.value.toLowerCase(), JSON.stringify(data));
+    cityName.innerHTML  = "<span style='color: teal'>Item successfuly added to Local Storage</span>";
 }
 
 //  GET DATA FROM LOCAL STORAGE
 
 function getData() {
-    const dataFromStorage = local.getItem(cityNameKey.value);
+    try{
+    const dataFromStorage = local.getItem(cityNameKey.value.toLowerCase());
     const dataInfo = JSON.parse(dataFromStorage);
     document.getElementById("city").innerHTML = dataInfo.city;
     document.getElementById("tempr").innerHTML = dataInfo.tempreture;
     document.getElementById("windy").innerHTML = dataInfo.wind;
     document.getElementById("humidity").innerHTML = dataInfo.humid;
+    document.getElementById('cityName').innerHTML = document.getElementById("cityInput").value;
+}
+catch(err) {cityName.innerHTML = "<span style='color: crimson'>Error:</br> Local Storage has no data for this city</span>"}
 }
 
 // DELETE DATA FROM LOCAL STORAGE
 
-function deleteData() {
-    const dataFromStorage = local.getItem(cityNameKey.value);
-    const dataInfo = JSON.parse(dataFromStorage);
-    for (var i = 0; i <= localStorage.length; i++) {
-        if (cityNameKey == dataInfo[i]) {
-            localStorage.removeItem(dataInfo[i]);
-        } else {
-            console.log("Item not found...")
+function deleteData(){
+
+    for (let i = 0, length = localStorage.length; i < length; i++) {
+        const key = localStorage.key(i);
+        if (cityNameKey.value.toLowerCase() == key) {
+            localStorage.removeItem(key);
+            console.log("Item successfuly removed from Local Storage");
+            cityName.innerHTML  = "<span style='color: teal'>Item successfuly removed from Local Storage</span>";
+        }
+        else{
+            console.log("Trying to remove an unexisting item...");
+            cityName.innerHTML = "<span style='color: crimson'>Error:</br> Local Storage has no data for this city</span>"
         }
     }
 }
