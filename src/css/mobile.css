@@ -4,27 +4,29 @@ body {
     font-size: large;
 }
 
-#current {
-    /* You will want to KEEP THIS. This will capitalize the weather description */
+#current, #cityName, #city {
+    /* KEEP THIS.*/
     text-transform: capitalize;
 }
 
-h2 {
+h2, h3 {
     color: #4C5E86;
+    margin-top: 0;
 }
 
 .logo {
     width: 150px;
+    margin: .5em 0;
 }
 
 .imgClass {
-    width: 80px;
+    width: 60px;
 }
 
 hr {
     height: 5px;
     background-color: #4C5E86;
-    width: 20%;
+    width: 100%;
     margin: .5em auto;
     border-radius: 5px;
 }
@@ -35,16 +37,31 @@ hr {
     margin: 0 15%;
     text-align: center;
 }
+.currentWeather{
+    display: flex;
+    flex-flow: column;
+    text-align: left;
+}
 
 .header-content {
+    display: flex;
+    flex-flow: row;
     margin: 0;
     padding: .5em;
     background-color: #4C5E86;
     box-shadow: #4C5E86 3px 3px 5px;
     border-radius: 5px;
-    text-align: end;
+    justify-content: space-between;
 }
-
+.localStorageBTNs{
+    display: flex;
+    gap: 0 .5em;
+}
+.searchSection{
+    display: flex;
+    align-items: flex-end;
+    gap: 0 .5em;
+}
 .cardsContainer {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -57,7 +74,7 @@ hr {
     margin: 1em auto;
     font-size: large;
     font-weight: 700;
-    color: crimson;
+    color: white;
     box-shadow: 2px 2px 5px white;
     padding: 0 2em;
     border-radius: 10px;
@@ -65,10 +82,7 @@ hr {
 
 .noBorder {
     border: none;
-}
-
-.norBorder {
-    display: inline-block;
+    font-size: large;
 }
 
 a {
@@ -77,12 +91,16 @@ a {
 
 .weatherContainer {
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-
 }
 
 .removeItem,
 .getDataDisplay {
-    color: crimson;
+    margin: .5em 15%;
+    color: #4C5E86;
+}
+
+#currentImg{
+    background-color: #4C5E86;
+    border-radius: 5px;
+    width: 50px;
 }
