@@ -1,106 +1,124 @@
 /* NOTES FOR RIBEKA */
 /* THE CSS BELOW WAS JUST FOR FUN. MAKE IT THE WAY YOU WANT ;) */
+
 body {
-    font-size: large;
+	font-size: large;
 }
 
-#current, #cityName, #city {
-    /* KEEP THIS.*/
-    text-transform: capitalize;
+#current,
+#cityName,
+#city {
+	/* KEEP THIS.*/
+	text-transform: capitalize;
 }
 
-h2, h3 {
-    color: #4C5E86;
-    margin-top: 0;
+h2,
+h3 {
+	color: #4c5e86;
+	margin-top: 0;
 }
 
 .logo {
-    width: 150px;
-    margin: .5em 0;
+	width: 150px;
+	margin: 0.5em 0;
+}
+
+.button {
+	background-color: aliceblue;
+}
+
+.icon-search {
+	color: whitesmoke;
+	text-decoration: none;
+}
+
+. {
+	background-color: transparent;
 }
 
 .imgClass {
-    width: 60px;
+	width: 60px;
 }
 
 hr {
-    height: 5px;
-    background-color: #4C5E86;
-    width: 100%;
-    margin: .5em auto;
-    border-radius: 5px;
+	height: 5px;
+	background-color: #4c5e86;
+	width: 100%;
+	margin: 0.5em auto;
+	border-radius: 5px;
 }
 
 .header,
 .currentWeather,
 .cardsContainer {
-    margin: 0 15%;
-    text-align: center;
+	/* margin: 0 15%; */
+	text-align: center;
 }
-.currentWeather{
-    display: flex;
-    flex-flow: column;
-    text-align: left;
+.currentWeather {
+	display: flex;
+	flex-flow: column;
+	text-align: left;
 }
 
 .header-content {
-    display: flex;
-    flex-flow: row;
-    margin: 0;
-    padding: .5em;
-    background-color: #4C5E86;
-    box-shadow: #4C5E86 3px 3px 5px;
-    border-radius: 5px;
-    justify-content: space-between;
+	display: flex;
+	flex-flow: row;
+	margin: 0;
+	padding: 0.5em;
+	background-color: #4c5e86;
+	box-shadow: #4c5e86 3px 3px 5px;
+	border-radius: 5px;
+	justify-content: space-between;
 }
-.localStorageBTNs{
-    display: flex;
-    gap: 0 .5em;
+.localStorageBTNs {
+	display: flex;
+	gap: 0 0.5em;
 }
-.searchSection{
-    display: flex;
-    align-items: flex-end;
-    gap: 0 .5em;
+.searchSection {
+	display: flex;
+	align-items: flex-end;
+	gap: 0 0.5em;
 }
 .cardsContainer {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    background-color: #4C5E86;
-    box-shadow: #4C5E86 3px 3px 10px;
-    border-radius: 10px;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	background-color: #4c5e86;
+	box-shadow: #4c5e86 3px 3px 10px;
+	border-radius: 10px;
 }
 
 .cards {
-    margin: 1em auto;
-    font-size: large;
-    font-weight: 700;
-    color: white;
-    box-shadow: 2px 2px 5px white;
-    padding: 0 2em;
-    border-radius: 10px;
+	margin: 0;
+	padding: 0;
+	font-size: large;
+	font-weight: 700;
+	color: white;
+	box-shadow: 2px 2px 5px white;
+	border-radius: 10px;
 }
 
 .noBorder {
-    border: none;
-    font-size: large;
+	border: none;
+	font-size: large;
 }
 
 a {
-    list-style: none;
+	list-style: none;
 }
 
 .weatherContainer {
-    display: flex;
+	display: flex;
+	justify-content: space-evenly;
 }
 
 .removeItem,
 .getDataDisplay {
-    margin: .5em 15%;
-    color: #4C5E86;
+	margin: 0;
+	color: #4c5e86;
 }
 
-#currentImg{
-    background-color: #4C5E86;
-    border-radius: 5px;
-    width: 50px;
+#currentImg {
+	background-color: #4c5e86;
+	border-radius: 5px;
+	width: 50px;
 }
