@@ -1,3 +1,6 @@
 /* 
 you may want to use just one css file and use @media querries 
 */
+
+@media screen and (min-width: 750px) {
+}

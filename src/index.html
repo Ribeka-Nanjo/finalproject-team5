@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="./images/weather-logo.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/desktop.css">
     <link rel="stylesheet" href="./css/mobile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600&display=swap" rel="stylesheet">
     <title>Open Weather | Final Project</title>
 </head>
 
@@ -17,13 +18,13 @@
         <div class="header">
             <div class="header-content">
                 <div class="localStorageBTNs">
-                    <button type="submit" onclick="getData()">Get Data</a></button>
-                    <button type="submit" onclick="saveData()">Save Data</button>
-                    <button type="submit" onclick="deleteData()">Remove Data</button>
+                    <button class="data-btn" type="submit" onclick="getData()">Get Data</a></button>
+                    <button class="data-btn" type="submit" onclick="saveData()">Save Data</button>
+                    <button class="data-btn" type="submit" onclick="deleteData()">Remove Data</button>
                 </div>
                 <div class="searchSection">
                     <input type="text" id="cityInput">
-                    <button  type="button" onclick="WeatherUserInfo()" class="button"><img class="icon-search" src="https://img.icons8.com/ios-glyphs/15/000000/search--v1.png"/></button>
+                    <button  type="button" onclick="WeatherUserInfo()" class="button"><img class="icon-search" src="https://img.icons8.com/ios-glyphs/30/000000/search--v1.png"/></button>
                 </div>
             </div>
             <img class="logo" src="./images/weather-logo.png" alt="">
@@ -37,17 +38,21 @@
                 <h4>Humidity: <span id="humidity"></span></h4>
             </div>
             <div class="currentWeather">
-                <h2>Current Weather Data</h2>
-                <h3 id="cityName" class="cityName">London</h3>
                 <img src="#" alt="" id="currentImg">
-                <input type="text" id="current" class="noBorder">
+                <h3 id="cityName" class="cityName">London</h3>
+                <p>Current Weather :</p>
+                <input type="text" id="current" class="currentW-text">
                 <p id="temp"></p>
                 <hr>
                 <div class="norBorder">
-                    <label for="">Wind</label>
-                    <input type="text" id="wind" class="noBorder" readonly><br>
-                    <label for="">Humidity</label>
-                    <input type="text" id="humid" class="noBorder" readonly>
+                    <div class="norBorder-1">
+                        <label size="10" for="">Wind</label>
+                        <input size="10" type="text" id="wind" class="currentW-text" readonly><br>
+                    </div>
+                    <div class="norBorder-1">
+                        <label size="10" for="">Humidity</label>
+                        <input size="10" type="text" id="humid" class="currentW-text" readonly>
+                    </div>
                 </div>
                 <hr>
             </div>
@@ -58,7 +63,7 @@
             <div class="cards">
                 <p class="weather" id="day1"></p>
                 <img src="./images/loading.png" class="imgClass" id="img1">
-                <p id="day1Temp">Loading...</p>
+                <p class="minValues" id="day1Temp">Loading...</p>
             </div>
 
             <div class="cards">
