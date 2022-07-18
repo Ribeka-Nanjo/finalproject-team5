@@ -30,7 +30,13 @@ label {
 	text-align: center;
 }
 
-.logo {
+/* Desktop */
+.logo-B {
+	display: none;
+}
+
+/* mobile */
+.logo-A {
 	width: 150px;
 	margin: 0 auto;
 	padding: 3em 0 0;

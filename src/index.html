@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./images/weather-logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="./css/desktop.css">
     <link rel="stylesheet" href="./css/mobile.css">
+    <link rel="stylesheet" href="./css/desktop.css">
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600&display=swap" rel="stylesheet">
     <title>Open Weather | Final Project</title>
 </head>
@@ -22,12 +22,13 @@
                     <button class="data-btn" type="submit" onclick="saveData()">Save Data</button>
                     <button class="data-btn" type="submit" onclick="deleteData()">Remove Data</button>
                 </div>
+                <img class="logo-B" src="./images/weather-logo.png" alt="logo">
                 <div class="searchSection">
                     <input type="text" id="cityInput">
                     <button  type="button" onclick="WeatherUserInfo()" class="button"><img class="icon-search" src="https://img.icons8.com/ios-glyphs/30/000000/search--v1.png"/></button>
                 </div>
             </div>
-            <img class="logo" src="./images/weather-logo.png" alt="">
+            <img class="logo-A" src="./images/weather-logo.png" alt="logo">
         </div>
         <div class="weatherContainer">
             <div class="removeItem cards">
@@ -38,7 +39,7 @@
                 <h4>Humidity: <span id="humidity"></span></h4>
             </div>
             <div class="currentWeather">
-                <img src="#" alt="" id="currentImg">
+                <img src="#" alt="currentImg" id="currentImg">
                 <h3 id="cityName" class="cityName">London</h3>
                 <p>Current Weather :</p>
                 <input type="text" id="current" class="currentW-text">

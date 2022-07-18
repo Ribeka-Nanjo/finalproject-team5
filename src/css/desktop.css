@@ -2,5 +2,72 @@
 you may want to use just one css file and use @media querries 
 */
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 980px) {
+	/* Desktop */
+	.logo-B {
+		grid-column: 2/3;
+		display: flex !important;
+		width: 200px;
+		margin: 0 auto;
+		padding: 20px 0;
+	}
+
+	/* Mobile */
+	.logo-A {
+		display: none;
+	}
+
+	.weatherContainer {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.cardsContainer {
+		width: 980px;
+	}
+
+	.removeItem {
+		height: 290px;
+		margin: 130px auto;
+	}
+
+	hr {
+		width: 250px;
+	}
+
+	.cards {
+		width: 260px;
+	}
+
+	.data-btn {
+		display: flex;
+		height: 40px;
+		align-items: center;
+	}
+
+	/* header */
+
+	.header-content {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: 1fr;
+	}
+
+	.localStorageBTNs {
+		display: flex;
+		grid-row: 2;
+		grid-column: 2/3;
+		gap: 0 0.5em;
+		margin: 0 auto;
+		justify-content: space-between;
+	}
+
+	.searchSection {
+		display: flex;
+		margin: 0 auto;
+		align-items: ;
+		grid-row: 2;
+		grid-column: 3/4;
+		align-items: baseline;
+	}
 }
