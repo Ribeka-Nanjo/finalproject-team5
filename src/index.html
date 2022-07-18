@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./images/weather-logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="./css/desktop.css">
     <link rel="stylesheet" href="./css/mobile.css">
+    <link rel="stylesheet" href="./css/desktop.css">
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600&display=swap" rel="stylesheet">
     <title>Open Weather | Final Project</title>
 </head>
@@ -32,10 +32,22 @@
         <div class="weatherContainer">
             <div class="removeItem cards">
                 <h2>Local Storage Data</h2>
-                <h4>City: <span id="city"></span></h4>
-                <h4>Temp: <span id="tempr"></span></h4>
-                <h4>Wind: <span id="windy"></span></h4>
-                <h4>Humidity: <span id="humidity"></span></h4>
+                <div class="item-data">
+                    <h4>City:</h4>
+                    <h4 id="city"></h4>
+                </div>
+                <div class="item-data">
+                    <h4>Temp: </h4>
+                    <h4 id="tempr"></h4>
+                </div>
+                <div class="item-data">
+                    <h4>Wind:</h4>
+                    <h4 id="windy"></h4>
+                </div>
+                <div class="item-data">
+                    <h4>Humidity: </h4>
+                    <h4 id="humidity"></h4>
+                </div>              
             </div>
             <div class="currentWeather">
                 <img src="#" alt="" id="currentImg">
@@ -91,8 +103,8 @@
             </div>
         </div>
 
-    </div>
-    </div>
+    </div> 
+    </div> 
     <script src="./js/main.js"></script>
 </body>
 

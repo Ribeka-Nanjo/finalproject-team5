@@ -64,15 +64,24 @@ for (i = 0; i < 5; i++) {
 // SAVE DATA TO LOCAL STORAGE
 
 function saveData() {
+    if (cityNameKey.value == ""){
+        cityName.innerHTML  = "<span style='color: crimson'>City name Required !!</span>";
 
-    let data = {
-        "city": cityNameKey.value.toLowerCase(),
-        "tempreture": temp.value,
-        "wind": wind.value,
-        "humid": humid.value
+    }else {
+        let data = {
+            "city": cityNameKey.value.toLowerCase(),
+            "tempreture": temp.value,
+            "wind": wind.value,
+            "humid": humid.value
+        }
+
+        local.setItem(cityNameKey.value.toLowerCase(), JSON.stringify(data));
+        cityName.innerHTML  = "<span style='color: teal'>Successfully added</span>";
     }
-    local.setItem(cityNameKey.value.toLowerCase(), JSON.stringify(data));
-    cityName.innerHTML  = "<span style='color: teal'>Item successfuly added to Local Storage</span>";
+
+
+ 
+    
 }
 
 //  GET DATA FROM LOCAL STORAGE
@@ -87,7 +96,7 @@ function getData() {
     document.getElementById("humidity").innerHTML = dataInfo.humid;
     document.getElementById('cityName').innerHTML = document.getElementById("cityInput").value.toLowerCase();
 }
-catch(err) {cityName.innerHTML = "<span style='color: crimson'>Error:</br> Local Storage has no data for this city</span>"}
+catch(err) {cityName.innerHTML = "<span style='color: crimson'>Error: data not found </span>"}
 }
 
 // DELETE DATA FROM LOCAL STORAGE
@@ -98,12 +107,12 @@ function deleteData(){
         const key = localStorage.key(i);
         if (cityNameKey.value.toLowerCase() == key) {
             localStorage.removeItem(key);
-            console.log("Item successfuly removed from Local Storage");
-            cityName.innerHTML  = "<span style='color: teal'>Item successfuly removed from Local Storage</span>";
+            // console.log("Item successfuly removed from Local Storage");
+            cityName.innerHTML  = "<span style='color: teal'> Data deleted</span>";
         }
         else{
-            console.log("Trying to remove an unexisting item...");
-            cityName.innerHTML = "<span style='color: crimson'>Error:</br> Local Storage has no data for this city</span>"
+            // console.log("Trying to remove an unexisting item...");
+            cityName.innerHTML = "<span style='color: crimson'>Error: data not found</span>"
         }
     }
 }
