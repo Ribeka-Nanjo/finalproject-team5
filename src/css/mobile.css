@@ -1,8 +1,4 @@
-/* NOTES FOR RIBEKA */
-/* THE CSS BELOW WAS JUST FOR FUN. MAKE IT THE WAY YOU WANT ;) */
-
 body {
-	min-width: 750px;
 	font-family: "Heebo", sans-serif;
 	font-size: 18px;
 }
@@ -10,7 +6,6 @@ body {
 #current,
 #cityName,
 #city {
-	/* KEEP THIS.*/
 	text-transform: capitalize;
 }
 
