@@ -7,9 +7,8 @@ you may want to use just one css file and use @media querries
 	.logo-B {
 		grid-column: 2/3;
 		display: flex !important;
-		width: 200px;
+		width: 180px;
 		margin: 0 auto;
-		padding: 20px 0;
 	}
 
 	/* Mobile */
@@ -51,6 +50,7 @@ you may want to use just one css file and use @media querries
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
 		grid-template-rows: 1fr;
+		padding: 15px 0;
 	}
 
 	.localStorageBTNs {
