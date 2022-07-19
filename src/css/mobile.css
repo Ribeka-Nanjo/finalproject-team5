@@ -1,6 +1,8 @@
 body {
+	min-width: 30em;
 	font-family: "Heebo", sans-serif;
 	font-size: 18px;
+	margin: 0;
 }
 
 #current,
@@ -17,6 +19,11 @@ label {
 	font-weight: 600;
 	padding: 0.5em;
 	text-align: center;
+}
+
+.removeItem h2 {
+	padding: 0;
+	text-align: left;
 }
 
 #cityName {
@@ -49,9 +56,7 @@ label {
 	border-radius: 3px;
 	border: #47525d;
 	background-color: #57a5b18f;
-	margin: 4px;
 	box-shadow: #666666 0px 1px 3px;
-	padding: 8px;
 }
 
 .data-btn:hover {
@@ -65,6 +70,14 @@ label {
 .icon-search {
 	color: whitesmoke;
 	text-decoration: none;
+}
+
+.icon-search:hover {
+	opacity: 0.5;
+}
+
+.icon-search:active {
+	opacity: 1;
 }
 
 .imgClass {
@@ -120,7 +133,6 @@ hr {
 	display: flex;
 	background-color: #57a5b18f;
 	box-shadow: #47525d 0px 6px 10px;
-	width: 700px;
 	margin: 0 auto 70px;
 	padding: 0;
 }
@@ -130,7 +142,6 @@ hr {
 	padding: 0;
 	color: black;
 	box-shadow: 2px 1px 2px white;
-	border-radius: 10px;
 	width: 290px;
 }
 
@@ -185,9 +196,17 @@ a {
 
 .removeItem,
 .getDataDisplay {
-	margin: 10px auto 60px;
+	/* margin: 10px auto 60px; */
 	color: #4c5e86;
 	box-shadow: 1px 2px 8px #0000003b;
 	border-radius: 10px;
 	padding: 1em 2em;
+
+	margin: 100px auto;
+	padding-top: 68px;
+}
+
+.currentWeather input:focus {
+	outline: none;
+	cursor: auto;
 }
