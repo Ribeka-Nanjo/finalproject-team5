@@ -18,14 +18,14 @@
         <div class="header">
             <div class="header-content">
                 <div class="localStorageBTNs">
-                    <button class="data-btn" type="submit" onclick="getData()">Get Data</a></button>
+                    <button class="data-btn" type="submit" onclick="getData()">Get Data</button>
                     <button class="data-btn" type="submit" onclick="saveData()">Save Data</button>
                     <button class="data-btn" type="submit" onclick="deleteData()">Remove Data</button>
                 </div>
                 <img class="logo-B" src="./images/weather-logo.png" alt="logo">
                 <div class="searchSection">
                     <input type="text" id="cityInput">
-                    <button  type="button" onclick="WeatherUserInfo()" class="button"><img class="icon-search" src="https://img.icons8.com/ios-glyphs/30/000000/search--v1.png"/></button>
+                    <button  type="button" onclick="WeatherUserInfo()" class="button"><img class="icon-search" src="https://img.icons8.com/ios-glyphs/30/000000/search--v1.png" alt="icon"/></button>
                 </div>
             </div>
             <img class="logo-A" src="./images/weather-logo.png" alt="logo">
@@ -47,12 +47,12 @@
                 <hr>
                 <div class="norBorder">
                     <div class="norBorder-1">
-                        <label size="10" for="">Wind</label>
-                        <input size="10" type="text" id="wind" class="currentW-text" readonly><br>
+                        <label for="wind">Wind</label>
+                        <input type="text" id="wind" class="currentW-text" readonly><br>
                     </div>
                     <div class="norBorder-1">
-                        <label size="10" for="">Humidity</label>
-                        <input size="10" type="text" id="humid" class="currentW-text" readonly>
+                        <label for="humid">Humidity</label>
+                        <input type="text" id="humid" class="currentW-text" readonly>
                     </div>
                 </div>
                 <hr>
@@ -63,36 +63,35 @@
 
             <div class="cards">
                 <p class="weather" id="day1"></p>
-                <img src="./images/loading.png" class="imgClass" id="img1">
+                <img src="./images/loading.png" alt="loading" class="imgClass" id="img1">
                 <p class="minValues" id="day1Temp">Loading...</p>
             </div>
 
             <div class="cards">
                 <p class="weather" id="day2"></p>
-                <img src="./images/loading.png" class="imgClass" id="img2">
+                <img src="./images/loading.png" alt="loading" class="imgClass" id="img2">
                 <p class="minValues" id="day2Temp">Loading...</p>
             </div>
 
             <div class="cards">
                 <p class="weather" id="day3"></p>
-                <img src="./images/loading.png" class="imgClass" id="img3">
+                <img src="./images/loading.png" alt="loading" class="imgClass" id="img3">
                 <p class="minValues" id="day3Temp">Loading...</p>
             </div>
 
             <div class="cards">
                 <p class="weather" id="day4"></p>
-                <img src="./images/loading.png" class="imgClass" id="img4">
+                <img src="./images/loading.png" alt="loading" class="imgClass" id="img4">
                 <p class="minValues" id="day4Temp">Loading...</p>
             </div>
 
             <div class="cards">
                 <p class="weather" id="day5"></p>
-                <img src="./images/loading.png" class="imgClass" id="img5">
+                <img src="./images/loading.png" alt="loading" class="imgClass" id="img5">
                 <p class="minValues" id="day5Temp">Loading...</p>
             </div>
         </div>
 
-    </div>
     </div>
     <script src="./js/main.js"></script>
 </body>

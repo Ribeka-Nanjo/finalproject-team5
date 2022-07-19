@@ -26,7 +26,7 @@ function WeatherUserInfo() {
             document.getElementById('wind').value = current.wind.speed + ' m/s';
             document.getElementById('humid').value = current.main.humidity + ' %';
         })
-        .catch(err => cityName.innerHTML = "<span style='color: crimson'>Error:</br> Check City Name</span>")
+        .catch(err => cityName.innerHTML = "<span style='color: crimson'>Error: check city name</span>")
 
     // FORECAST
     fetch('https://api.openweathermap.org/data/2.5/forecast?q=' + newName.value + '&units=metric&APPID=93022b80d2fa47743474256c2ea49a47')
@@ -42,7 +42,7 @@ function WeatherUserInfo() {
             }
 
         })
-        .catch(err => cityName.innerHTML = "<span style='color: crimson'>Error:</br> Check City Name</span>")
+        .catch(err => cityName.innerHTML = "<span style='color: crimson'>Error: check city name</span>")
 }
 
 function weatherMapper() {
@@ -72,7 +72,7 @@ function saveData() {
         "humid": humid.value
     }
     local.setItem(cityNameKey.value.toLowerCase(), JSON.stringify(data));
-    cityName.innerHTML  = "<span style='color: teal'>Item successfuly added to Local Storage</span>";
+    cityName.innerHTML  = "<span style='color: teal'>Successfully added!</span>";
 }
 
 //  GET DATA FROM LOCAL STORAGE
@@ -87,7 +87,7 @@ function getData() {
     document.getElementById("humidity").innerHTML = dataInfo.humid;
     document.getElementById('cityName').innerHTML = document.getElementById("cityInput").value.toLowerCase();
 }
-catch(err) {cityName.innerHTML = "<span style='color: crimson'>Error:</br> Local Storage has no data for this city</span>"}
+catch(err) {cityName.innerHTML = "<span style='color: crimson'>Error: Data not found</span>"}
 }
 
 // DELETE DATA FROM LOCAL STORAGE
@@ -99,11 +99,11 @@ function deleteData(){
         if (cityNameKey.value.toLowerCase() == key) {
             localStorage.removeItem(key);
             console.log("Item successfuly removed from Local Storage");
-            cityName.innerHTML  = "<span style='color: teal'>Item successfuly removed from Local Storage</span>";
+            cityName.innerHTML  = "<span style='color: teal'>Successfully removed!</span>";
         }
         else{
             console.log("Trying to remove an unexisting item...");
-            cityName.innerHTML = "<span style='color: crimson'>Error:</br> Local Storage has no data for this city</span>"
+            cityName.innerHTML = "<span style='color: crimson'>Error: Data not found</span>"
         }
     }
 }
